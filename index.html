@@ -8,8 +8,25 @@
   <meta property="og:title" content="horsecat"/>
   <link rel="shortcut icon" href="favicon.ico">
   <style>
-  body,.overlay{background: #000 url('hc_web.png') no-repeat fixed center; background-size: cover; overflow: hidden;}
+  body{margin:0;height:100%;width:100%;}
+  .hc{background: #000 url('hc_web.png') no-repeat fixed center; background-size: cover; overflow: hidden;height:1000px;-webkit-filter: contrast(1.1) saturate(2) sepia(0.1);}
   </style>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js
+"></script>
+  <script>
+  $(document).ready(function(){
+    $('.hc').height($(window).outerHeight());
+    setInterval(function(){
+      i = new Date();
+      i = i.getMilliseconds() % 100;
+      if(i > 50) i = 100-i;
+      i = (i+10)/30;
+      console.log(i);
+      p = "contrast("+i*0.3+") saturate("+3*i+") brightness("+0.9*i+")";
+      $('.hc').css("-webkit-filter",p);
+    },100);
+});
+  </script>
 </head>
-<body/>
+<body><div class="hc"></div></body>
 </html>

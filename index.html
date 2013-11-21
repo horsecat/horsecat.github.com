@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<!-- 
+'||                                                       .   
+ || ..     ...   ... ..   ....    ....    ....   ....   .||.  
+ ||' ||  .|  '|.  ||' '' ||. '  .|...|| .|   '' '' .||   ||   
+ ||  ||  ||   ||  ||     . '|.. ||      ||      .|' ||   ||   
+.||. ||.  '|..|' .||.    |'..|'  '|...'  '|...' '|..'|'  '|.' 
+                                                              
+ -->
 <head>
   <title>horsecat</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
@@ -14,18 +22,7 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js
 "></script>
   <script>
-  $(document).ready(function(){
-    $('.hc').height($(window).outerHeight());
-    setInterval(function(){
-      i = new Date();
-      i = i.getMilliseconds() % 100;
-      if(i > 50) i = 100-i;
-      i = (i+10)/30;
-      console.log(i);
-      p = "contrast("+i*0.3+") saturate("+3*i+") brightness("+0.9*i+")";
-      $('.hc').css("-webkit-filter",p);
-    },100);
-});
+  function horse(){i=new Date;i=i.getMilliseconds()%100;if(i>50)i=100-i;i=(i+10)/30;p="contrast("+i*0.3+") saturate("+3*(i+0.8)+") brightness("+0.9*i+")";$(".hc").css("-webkit-filter",p)}$(document).ready(function(){is=true;$(".hc").height($(window).outerHeight());x=setInterval(function(){horse()},100);$(".hc").click(function(){if(is){clearInterval(x);is=false}else{x=setInterval(function(){horse()},100);is=true}})});
   </script>
 </head>
 <body><div class="hc"></div></body>
